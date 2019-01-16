@@ -37,10 +37,10 @@ fun main(args: Array<String>) {
     println("address: $address")
 }
 
-private fun checksum(extended: String) {
+private fun checksum(extended: String): String {
     val checksum = Sha256Hash.hash(Sha256Hash.hash(Hex.decodeHex(extended)))
     val shortPrefix = Arrays.copyOfRange(checksum, 0, 4)
-    Hex.encodeHexString(shortPrefix)!!
+    return Hex.encodeHexString(shortPrefix)!!
 }
 
 fun printArrayAsHex(prefix: String, bytes: ByteArray) {
